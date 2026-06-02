@@ -473,7 +473,7 @@
     <h2>Galeri Ananda</h2>
     
     <div class="gallery-grid">
-        
+
     <img src="foto4.jpg" alt="">
     <img src="foto1.jpg" alt="">
     <img src="foto2.jpg" alt="">
@@ -566,6 +566,79 @@
     },1000);
     
     </script>
+
+    <audio id="bgMusic" loop>
+        <source src="lagu.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="musicBtn">
+        <i class="fa-solid fa-music"></i>
+    </button>
+
+    <style>
+    #musicBtn{
+            position:fixed;
+            bottom:20px;
+            left:20px;
+            width:60px;
+            height:60px;
+            border:none;
+            border-radius:50%;
+            background:#d4b16a;
+            color:white;
+            font-size:22px;
+            cursor:pointer;
+            z-index:9999;
+            box-shadow:0 5px 15px rgba(0,0,0,.2);
+        }
+        
+        #musicBtn.playing{
+            animation:spin 4s linear infinite;
+        }
+        
+        @keyframes spin{
+            from{
+                transform:rotate(0deg);
+            }
+            to{
+                transform:rotate(360deg);
+            }
+        }
+    </style>
+
+    <script>
+
+        const music =
+        document.getElementById("bgMusic");
+        
+        const btn =
+        document.getElementById("musicBtn");
+        
+        let playing = false;
+        
+        btn.addEventListener("click",()=>{
+        
+        if(!playing){
+        
+        music.play();
+        
+        btn.classList.add("playing");
+        
+        playing = true;
+        
+        }else{
+        
+        music.pause();
+        
+        btn.classList.remove("playing");
+        
+        playing = false;
+        
+        }
+        
+        });
+        
+        </script>
     
 </body>
 </html>
